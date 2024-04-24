@@ -1,4 +1,4 @@
-package com.example.accounting.accounts;
+package com.github.ankurpapneja4.bookkeeper.accounts;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
