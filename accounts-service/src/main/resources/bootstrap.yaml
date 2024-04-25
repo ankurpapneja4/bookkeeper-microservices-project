@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      enabled: true
+      discovery:
+        enabled: true # This is required
+        service-id: config-server # Config Server's eureka registry name
