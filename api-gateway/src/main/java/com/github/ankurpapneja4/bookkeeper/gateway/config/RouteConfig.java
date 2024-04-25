@@ -1,5 +1,6 @@
 package com.github.ankurpapneja4.bookkeeper.gateway.config;
 
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
@@ -13,8 +14,8 @@ public class RouteConfig {
         return routeBuilder.routes()
                     .route( "accounts-service",
                             r -> r.path("/bookkeeper/accounts-service/**")
-                                    .filters( f -> f.rewritePath("/bookkeeper/(?<segment>.*)", "/${segment}") )
-                                      .uri("http://localhost:8080"))
+                                    .filters( f -> f.rewritePath("/bookkeeper/accounts-service/(?<segment>.*)", "/${segment}") )
+                                      .uri("lb://accounts-service"))
                 .build();
     }
 }
