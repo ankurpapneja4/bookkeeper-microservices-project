@@ -16,5 +16,5 @@ public abstract class BaseEntity {
     private Long id;
 
     @Version
-    private Long version;
+    private Integer version;
 }
