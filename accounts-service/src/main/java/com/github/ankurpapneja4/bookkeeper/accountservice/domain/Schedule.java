@@ -2,21 +2,24 @@ package com.github.ankurpapneja4.bookkeeper.accountservice.domain;
 
 public enum Schedule {
 
-    CAP("CAPITAL ACCOUNT"),
+    CAPITAL("CAPITAL ACCOUNT"),
     BANK("BANK"),
-    CSH("CASH"),
+    CASH("CASH"),
     EXP( "EXPENSES"),
-    SALE("SALE"),
+    SALES("SALE"),
     PUR("PURCHASE"),
-    CR("SUNDRY CREDITORS"),
-    DR("SUNDRY DEBTORS");
+    EMPLOYEE("SALARY"),
+    BUYER("SUNDRY CREDITORS"),
+    SELLER("SUNDRY DEBTORS"),
+    TDS("TDS");
 
-    private String name;
+    private String value;
 
-    private Schedule(String scheduleName){
-        this.name = name;
+    private Schedule(String value){
+        this.value = value;
     }
-    public String scheduleName(){
-        return name;
+
+    public String value(){
+        return value;
     }
 }
