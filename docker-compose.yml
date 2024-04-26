@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.3.0
+    container_name: mysql-service
+    environment:
+      - MYSQL_DATABASE=bookkeeper
+      - MYSQL_USER=bookkeeper
+      - MYSQL_PASSWORD=bookkeeper
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - "3306:3306"
+    volumes:
+      - bookkeeper-mysql-data:/var/lib/mysql
+
+volumes:
+  bookkeeper-mysql-data:
+    external: true
+    name: bookkeeper-mysql-data
