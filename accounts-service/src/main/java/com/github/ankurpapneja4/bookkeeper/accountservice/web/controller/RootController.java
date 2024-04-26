@@ -1,4 +1,4 @@
-package com.github.ankurpapneja4.bookkeeper.accounts.web.controller;
+package com.github.ankurpapneja4.bookkeeper.accountservice.web.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMapping;

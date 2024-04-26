@@ -1,13 +1,32 @@
-spring:
-  application.name: accounts-service
-  # config.import: configserver:${CONFIG_URI:http://localhost:8888}
+# Application Name
+spring.application.name: accounts-service
 
-server:
-  port: 8080
+# Config Server
+# spring.config.import: configserver:${CONFIG_URI:http://localhost:8888}
 
+# Server Port
+server.port: 8080
+
+# Database
+database: h2
+spring.sql.init:
+  schemaLocations: classpath*:db/${database}/schema.sql
+  dataLocations: classpath*:db/${database}/data.sql
+
+# JPA
+spring.jpa:
+  hibernate.ddl-auto: update
+  open-in-view: true
+
+# Eureka
 eureka:
   client:
     serviceUrl:
       defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
   instance:
     preferIpAddress: true
+
+# Logging
+logging:
+  level:
+    org.hibernate.SQL: info

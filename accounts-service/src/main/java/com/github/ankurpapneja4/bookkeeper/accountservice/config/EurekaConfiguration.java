@@ -1,4 +1,4 @@
-package com.github.ankurpapneja4.bookkeeper.accounts.config;
+package com.github.ankurpapneja4.bookkeeper.accountservice.config;
 
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Configuration;
