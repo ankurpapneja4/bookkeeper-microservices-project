@@ -23,7 +23,7 @@ public class InventoryPagedListMapper {
     }
 
     public Inventory toInventoy(InventoryDto dto) {
-        return inventoryMapper.toInventoy(dto);
+        return inventoryMapper.toInventory(dto);
     }
 
     public InventoryDto toInventoryDto(Inventory inventory) {

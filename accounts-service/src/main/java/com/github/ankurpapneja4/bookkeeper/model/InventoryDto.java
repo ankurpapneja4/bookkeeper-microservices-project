@@ -22,10 +22,13 @@ public class InventoryDto {
     @JsonFormat( pattern = "yyyy-MM-dd'T'HH:mm:ssZ")
     private OffsetDateTime updatedDate;
 
+    @Null
     private Long productId;
 
+    @Null
     private String productName;
 
+    @Null
     private String productHsnCode;
 
     @JsonFormat( shape = JsonFormat.Shape.STRING)
