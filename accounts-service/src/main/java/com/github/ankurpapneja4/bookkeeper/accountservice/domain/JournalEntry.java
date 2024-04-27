@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -13,21 +14,25 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Builder
 @Entity
+@Table( name= "journal_register")
 public class JournalEntry extends BaseEntityAudit {
 
     @ManyToOne( fetch = FetchType.LAZY )
-    @JoinColumn
+    @JoinColumn( name = "cr_ac_id")
     private Account creditAc;
 
     @ManyToOne( fetch = FetchType.LAZY )
-    @JoinColumn
+    @JoinColumn( name = "dr_ac_id" )
     private Account debitAc;
 
     private BigDecimal amount;
 
-    private String description;
+    private LocalDate transactionDate;
 
     @Enumerated( EnumType.STRING )
-    JournalEntryType type;
+    private JournalEntryType transactionType;
+
+    // Reference To InvoiceId Or Tax Voucher
+    private Long referenceId;
 
 }

@@ -2,16 +2,13 @@ package com.github.ankurpapneja4.bookkeeper.accountservice.domain;
 
 public enum Schedule {
 
-    CAPITAL("CAPITAL ACCOUNT"),
-    BANK("BANK"),
-    CASH("CASH"),
-    EXP( "EXPENSES"),
-    SALES("SALE"),
-    PUR("PURCHASE"),
-    EMPLOYEE("SALARY"),
-    BUYER("SUNDRY CREDITORS"),
-    SELLER("SUNDRY DEBTORS"),
-    TDS("TDS");
+    SALES("PRODUCT SALE"),
+
+    PURCHASE("PRODUCT PURCHASE"),
+
+    SELLER("SUNDRY CREDITORS"),
+
+    TAXES("TAX ACCOUNTS");
 
     private String value;
 

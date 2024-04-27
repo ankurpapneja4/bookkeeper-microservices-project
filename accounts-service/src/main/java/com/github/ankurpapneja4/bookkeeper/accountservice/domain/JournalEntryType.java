@@ -2,9 +2,8 @@ package com.github.ankurpapneja4.bookkeeper.accountservice.domain;
 
 public enum JournalEntryType {
 
-    CASH( "CASH"),
-    SALE("SALE"),
-    PUR("PURCHASE");
+    PUR( "Purchase Invoice"),
+    Tax("Tax Voucher");
 
     private String value;
 
