@@ -21,7 +21,7 @@ public class AccountPagedListMapper{
         return new AccountDtoPagedList(
                         toListAccountDto( page.getContent() ),
                         PageRequest.of( page.getNumber(), page.getSize()),
-                        page.getTotalPages()
+                        page.getTotalElements()
                 );
     }
 
