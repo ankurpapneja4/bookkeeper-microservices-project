@@ -23,8 +23,6 @@ public class PurchaseInvoiceLine extends BaseEntityAudit {
 
     private BigDecimal amount;
 
-    private LocalDate transactionDate;
-
     @ManyToOne
     @JoinColumn( name = "invoice_id")
     private PurchaseInvoice invoice;
