@@ -4,6 +4,8 @@ package com.github.ankurpapneja4.bookkeeper.accountservice.domain;
 import com.github.ankurpapneja4.bookkeeper.entities.BaseEntityAudit;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -17,12 +19,14 @@ import java.time.LocalDate;
 @Table( name= "journal_register")
 public class JournalEntry extends BaseEntityAudit {
 
-    @ManyToOne( fetch = FetchType.LAZY )
+    @ManyToOne
     @JoinColumn( name = "cr_ac_id")
+    @Fetch( FetchMode.JOIN )
     private Account creditAc;
 
-    @ManyToOne( fetch = FetchType.LAZY )
+    @ManyToOne
     @JoinColumn( name = "dr_ac_id" )
+    @Fetch( FetchMode.JOIN )
     private Account debitAc;
 
     private BigDecimal amount;

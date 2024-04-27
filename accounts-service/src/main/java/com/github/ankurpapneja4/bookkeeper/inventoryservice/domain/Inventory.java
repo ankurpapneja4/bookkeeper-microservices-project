@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import lombok.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import java.math.BigDecimal;
 
@@ -18,6 +20,7 @@ public class Inventory extends BaseEntityAudit {
 
     @OneToOne
     @JoinColumn( name = "product_id")
+    @Fetch( FetchMode.JOIN )
     private Product product;
 
     private BigDecimal totalPurchaseQty;
