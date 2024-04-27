@@ -1,30 +1,53 @@
 package com.github.ankurpapneja4.bookkeeper.accountservice.web.controller;
 
-import org.springframework.beans.factory.annotation.Value;
+import com.github.ankurpapneja4.bookkeeper.accountservice.services.AccountService;
+import com.github.ankurpapneja4.bookkeeper.model.AccountDto;
+import com.github.ankurpapneja4.bookkeeper.model.AccountDtoPagedList;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.util.Assert;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
-import java.util.List;
+import java.net.URI;
 
 @RestController
+@AllArgsConstructor
 public class AccountController {
 
-    @Value("${applicationName}")
-    private String applicationName;
+    private final AccountService accountService;
+
+    @GetMapping("/api/v1/accounts/{accountId}")
+    public ResponseEntity<AccountDto> getAccountById( @PathVariable("accountId") Long accountId ) {
+        return ResponseEntity.ok( accountService.findById(accountId) );
+    }
+
 
     @GetMapping("/api/v1/accounts")
-    public ResponseEntity<List<?>> getAccounts(){
+    public ResponseEntity<AccountDtoPagedList> getAccounts(
+                @RequestParam(value = "pageNum",  defaultValue = "0",  required = false) Integer pageNum,
+                @RequestParam(value = "pageSize", defaultValue = "10", required = false) Integer pageSize) {
 
-        return ResponseEntity.ok(Collections.EMPTY_LIST );
+        Assert.isTrue( pageNum  >= 0, "Invalid pageNum" );
+        Assert.isTrue( pageSize >= 0, "Invalid pageSize");
 
+        return ResponseEntity.ok(
+                    accountService.findAll( PageRequest.of( pageNum, pageSize) ));
     }
 
-    @GetMapping("/api/v1/app")
-    public ResponseEntity<String> getApplicationName(){
-        return ResponseEntity.ok( applicationName );
+    @PostMapping("/api/v1/accounts")
+    public ResponseEntity createAccount(@Valid @RequestBody AccountDto accountDto, HttpServletRequest request) {
+
+        Long accountId = accountService.createAccount( accountDto );
+        String location = request.getRequestURL().append("api/v1/accounts/").append(accountId).toString();
+
+        return ResponseEntity.created( URI.create( location) ).build();
     }
+
+
+
 
 
 }

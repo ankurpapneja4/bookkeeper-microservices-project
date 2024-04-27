@@ -1,4 +1,4 @@
-package com.github.ankurpapneja4.bookkeeper.accountservice;
+package com.github.ankurpapneja4.bookkeeper;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
