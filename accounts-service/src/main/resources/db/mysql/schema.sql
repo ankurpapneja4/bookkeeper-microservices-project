@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS journal_register (
     cr_ac_id BIGINT NOT NULL,
     dr_ac_id BIGINT NOT NULL,
     amount DECIMAL(10,2) NOT NULL,
-    transaction_date DATE NOT NULL DEFAULT CURRENT_DATE,
+    transaction_date DATE NOT NULL DEFAULT (CURRENT_DATE),
     transaction_type varchar(8) NOT NULL,
     reference_id BIGINT,
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS purchase_invoice (
     id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     version INT NOT NULL DEFAULT 0,
     seller_invoice_id VARCHAR(32),
-    invoice_date DATE DEFAULT CURRENT_DATE,
+    invoice_date DATE DEFAULT (CURRENT_DATE),
     account_id BIGINT NOT NULL, -- NO FOREIGN KEY REFERENCE
     bill_amount DECIMAL(10,2),
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -87,5 +87,5 @@ CREATE TABLE IF NOT EXISTS tax_register (
     invoice_id BIGINT NOT NULL,  -- NO FOREIGN KEY REFERENCE
     tax_amount DECIMAL(8,2) DEFAULT 0,
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) engine = InnoDB;

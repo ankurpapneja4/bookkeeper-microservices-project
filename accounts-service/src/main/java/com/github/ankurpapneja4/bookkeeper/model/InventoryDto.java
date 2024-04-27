@@ -2,10 +2,14 @@ package com.github.ankurpapneja4.bookkeeper.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.Null;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 
+@Getter
+@Setter
 public class InventoryDto {
 
     @Null
@@ -23,13 +27,7 @@ public class InventoryDto {
     private OffsetDateTime updatedDate;
 
     @Null
-    private Long productId;
-
-    @Null
-    private String productName;
-
-    @Null
-    private String productHsnCode;
+    private ProductDto product;
 
     @JsonFormat( shape = JsonFormat.Shape.STRING)
     private BigDecimal totalPurchaseQty;

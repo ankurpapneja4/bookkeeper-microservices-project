@@ -1,5 +1,6 @@
 package com.github.ankurpapneja4.bookkeeper.taxservice.domain;
 
+import com.github.ankurpapneja4.bookkeeper.entities.BaseEntityAudit;
 import jakarta.persistence.Entity;
 import lombok.*;
 
@@ -11,7 +12,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class TaxRegister {
+public class TaxRegister extends BaseEntityAudit {
 
     private Long invoiceId;
 

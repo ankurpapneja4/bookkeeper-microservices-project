@@ -3,7 +3,7 @@ package com.github.ankurpapneja4.bookkeeper.inventoryservice.services.accountser
 import com.github.ankurpapneja4.bookkeeper.model.AccountDto;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("rest")
 public class AccountService {
 
     public AccountDto createAccount( AccountDto accountDto ){

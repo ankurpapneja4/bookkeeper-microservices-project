@@ -11,7 +11,7 @@ import lombok.Setter;
 public abstract class BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "BIGINT", updatable = false, nullable = false)
     private Long id;
 

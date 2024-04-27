@@ -1,17 +1,22 @@
 package com.github.ankurpapneja4.bookkeeper.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonSetter;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Null;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.List;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class PurchaseInvoiceDto {
 
     @Null
@@ -43,7 +48,7 @@ public class PurchaseInvoiceDto {
     private BigDecimal billAmount;
 
     @NotEmpty
-    List<PurchaseInvoiceLineDto> purchaseInvoiceLInes;
+    List<PurchaseInvoiceLineDto> purchaseInvoiceLines;
 
 
 
