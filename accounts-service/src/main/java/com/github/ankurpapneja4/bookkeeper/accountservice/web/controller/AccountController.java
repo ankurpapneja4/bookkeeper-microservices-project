@@ -41,7 +41,7 @@ public class AccountController {
     public ResponseEntity createAccount(@Valid @RequestBody AccountDto accountDto, HttpServletRequest request) {
 
         Long accountId = accountService.createAccount( accountDto );
-        String location = request.getRequestURL().append("api/v1/accounts/").append(accountId).toString();
+        String location = request.getRequestURL().append("/").append(accountId).toString();
 
         return ResponseEntity.created( URI.create( location) ).build();
     }
