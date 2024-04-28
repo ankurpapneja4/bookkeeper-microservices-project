@@ -4,7 +4,10 @@ import com.github.ankurpapneja4.bookkeeper.entities.BaseEntityAudit;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -13,9 +16,8 @@ import java.math.BigDecimal;
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
+@SuperBuilder
 @NoArgsConstructor
-@Builder
 public class Inventory extends BaseEntityAudit {
 
     @OneToOne

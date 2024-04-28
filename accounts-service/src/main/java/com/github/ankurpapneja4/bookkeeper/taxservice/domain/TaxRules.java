@@ -1,16 +1,17 @@
 package com.github.ankurpapneja4.bookkeeper.taxservice.domain;
 
 import com.github.ankurpapneja4.bookkeeper.entities.BaseEntity;
-import com.github.ankurpapneja4.bookkeeper.entities.BaseEntityAudit;
 import jakarta.persistence.Entity;
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @Getter
 @Setter
+@SuperBuilder
 @NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class TaxRules extends BaseEntity {
 
     private String hsnCode;
