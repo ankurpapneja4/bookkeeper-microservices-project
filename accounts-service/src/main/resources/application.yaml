@@ -30,3 +30,9 @@ eureka:
 logging:
   level:
     org.hibernate.SQL: info
+
+
+# Host
+accountService:
+  client:
+    serviceUri: ${ACCOUNT_SERVICE_URI:http://localhost:8080/}
