@@ -6,6 +6,7 @@ import com.github.ankurpapneja4.bookkeeper.purchaseservice.domain.PurchaseInvoic
 import com.github.ankurpapneja4.bookkeeper.purchaseservice.repository.PurchaseInvoiceRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -15,12 +16,15 @@ public class PurchaseInvoiceService {
 
     private final PurchaseInvoiceMapper invoiceMapper;
 
+    @Transactional
     public PurchaseInvoiceDto save(PurchaseInvoiceDto purchaseInvoiceDto){
 
-        PurchaseInvoice savedInvoice = purchaseInvoiceRepository.save(
-                                            invoiceMapper.toPurchaseInvoice( purchaseInvoiceDto));
+        PurchaseInvoice invoice = invoiceMapper.toPurchaseInvoice( purchaseInvoiceDto);
 
-        return invoiceMapper.toPurchaseInvoiceDto( savedInvoice );
+        // Set Bidirectional Mapping - Hibernate
+        invoice.getPurchaseInvoiceLines().forEach( line -> line.setInvoice( invoice ));
+
+        return invoiceMapper.toPurchaseInvoiceDto( purchaseInvoiceRepository.save( invoice ) );
     }
 
 }

@@ -37,13 +37,13 @@ public class PurchaseInvoiceDto {
     private String sellerInvoiceId;
 
     @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
-    @NotBlank
+    @NotNull
     private LocalDate invoiceDate;
 
     @NotNull
-    private Long accountId;
+    private Long sellerAccountId;
 
-    @Null
+    @NotNull
     @JsonFormat( shape = JsonFormat.Shape.STRING)
     private BigDecimal billAmount;
 
