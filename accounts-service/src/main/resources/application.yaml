@@ -36,3 +36,7 @@ logging:
 accountService:
   client:
     serviceUri: ${ACCOUNT_SERVICE_URI:http://localhost:8080/}
+
+productService:
+  client:
+    serviceUri: ${PRODUCT_SERVICE_URI:http://localhost:8080/}

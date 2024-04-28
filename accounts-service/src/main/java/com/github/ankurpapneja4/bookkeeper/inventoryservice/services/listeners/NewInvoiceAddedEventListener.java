@@ -15,7 +15,7 @@ public class NewInvoiceAddedEventListener {
     private final InventoryService inventoryService;
 
     @KafkaListener(
-            id = "updateInventory",
+            id = "updateInventoryForNewInvoice",
             topics = "NewInvoice",
             groupId = "InventoryService",
             autoStartup = "true"

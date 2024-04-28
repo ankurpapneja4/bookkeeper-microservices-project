@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS journal_register (
     dr_ac_id BIGINT NOT NULL,
     amount DECIMAL(10,2) NOT NULL,
     transaction_date DATE NOT NULL DEFAULT (CURRENT_DATE),
-    transaction_type varchar(8) NOT NULL,
+    transaction_type varchar(16) NOT NULL,
     reference_id BIGINT,
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

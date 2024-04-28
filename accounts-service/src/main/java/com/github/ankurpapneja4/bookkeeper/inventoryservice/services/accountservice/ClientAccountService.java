@@ -8,12 +8,12 @@ import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
 
-@Service("rest")
-public class AccountService {
+@Service
+public class ClientAccountService {
 
     private final RestTemplate restTemplate;
 
-    public AccountService(
+    public ClientAccountService(
             @Value("${accountService.client.serviceUri}") String rootUri,
             RestTemplateBuilder restTemplateBuilder ){
 

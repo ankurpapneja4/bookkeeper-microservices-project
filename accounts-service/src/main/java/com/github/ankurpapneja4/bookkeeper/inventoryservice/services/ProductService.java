@@ -1,9 +1,10 @@
 package com.github.ankurpapneja4.bookkeeper.inventoryservice.services;
 
 import com.github.ankurpapneja4.bookkeeper.accountservice.domain.Schedule;
+import com.github.ankurpapneja4.bookkeeper.exceptions.NotFoundException;
 import com.github.ankurpapneja4.bookkeeper.inventoryservice.domain.Product;
 import com.github.ankurpapneja4.bookkeeper.inventoryservice.repository.ProductRepository;
-import com.github.ankurpapneja4.bookkeeper.inventoryservice.services.accountservice.AccountService;
+import com.github.ankurpapneja4.bookkeeper.inventoryservice.services.accountservice.ClientAccountService;
 import com.github.ankurpapneja4.bookkeeper.mapper.ProductMapper;
 import com.github.ankurpapneja4.bookkeeper.model.AccountDto;
 import com.github.ankurpapneja4.bookkeeper.model.ProductDto;
@@ -16,9 +17,14 @@ import org.springframework.transaction.annotation.Transactional;
 public class ProductService {
 
     private final ProductRepository productRepository;
-    private final AccountService accountService;
+    private final ClientAccountService accountService;
     private final ProductMapper productMapper;
 
+    @Transactional( readOnly = true )
+    public ProductDto findById( Long productId){
+        return productMapper.toProductDto(
+                    productRepository.findById( productId ).orElseThrow( () -> new NotFoundException() ));
+    }
 
     @Transactional
     public ProductDto createProduct( ProductDto productDto ){
