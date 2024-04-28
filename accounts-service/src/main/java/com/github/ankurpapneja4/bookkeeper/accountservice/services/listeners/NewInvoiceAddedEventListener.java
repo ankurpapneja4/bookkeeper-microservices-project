@@ -2,7 +2,7 @@ package com.github.ankurpapneja4.bookkeeper.accountservice.services.listeners;
 
 import com.github.ankurpapneja4.bookkeeper.accountservice.domain.JournalEntryType;
 import com.github.ankurpapneja4.bookkeeper.accountservice.services.JournalEntryService;
-import com.github.ankurpapneja4.bookkeeper.accountservice.services.productservice.ClientProductService;
+import com.github.ankurpapneja4.bookkeeper.accountservice.services.inventoryservice.ClientProductService;
 import com.github.ankurpapneja4.bookkeeper.model.AccountDto;
 import com.github.ankurpapneja4.bookkeeper.model.JournalEntryDto;
 import com.github.ankurpapneja4.bookkeeper.model.ProductDto;

@@ -1,4 +1,4 @@
-package com.github.ankurpapneja4.bookkeeper.accountservice.services.productservice;
+package com.github.ankurpapneja4.bookkeeper.taxservice.services.inventoryservice;
 
 import com.github.ankurpapneja4.bookkeeper.model.ProductDto;
 import org.springframework.beans.factory.annotation.Value;
@@ -6,7 +6,7 @@ import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-@Service
+@Service("taxService_clientProductService")
 public class ClientProductService {
 
     private final RestTemplate restTemplate;
