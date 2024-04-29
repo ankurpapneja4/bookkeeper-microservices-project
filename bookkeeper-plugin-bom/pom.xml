@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>bookkeeper-plugin-bom</artifactId>
+    <version>1.1.0</version>
+    <packaging>pom</packaging>
+
+    <parent>
+        <groupId>com.github.ankurpapneja4.bookkeeper</groupId>
+        <artifactId>bookkeeper-parent-bom</artifactId>
+        <version>2.0.0</version>
+    </parent>
+
+    <properties>
+        <fabric8-docker-plugin.version>0.44.0</fabric8-docker-plugin.version>
+        <docker.image-prefix>ankurpapneja4/bookkeeper</docker.image-prefix>
+        <docker.image-name>${project.artifactId}</docker.image-name>
+    </properties>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+
+                <!-- Layered Jar-->
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <configuration>
+                        <layers>
+                            <enabled>true</enabled>
+                            <includeLayerTools>true</includeLayerTools>
+                        </layers>
+                    </configuration>
+                </plugin>
+
+                <!-- Fabric8 DockerImage Plugin -->
+                <plugin>
+                    <groupId>io.fabric8</groupId>
+                    <artifactId>docker-maven-plugin</artifactId>
+                    <version>${fabric8-docker-plugin.version}</version>
+                    <configuration>
+                        <verbose>true</verbose>
+                        <images>
+                            <image>
+                                <name>${docker.image-prefix}/${docker.image-name}</name>
+                                <build>
+                                    <contextDir>${project.basedir}</contextDir>
+                                    <dockerFile>Dockerfile</dockerFile>
+                                    <tags>
+                                        <tag>latest</tag>
+                                        <tag>${project.version}</tag>
+                                    </tags>
+                                </build>
+                            </image>
+                        </images>
+                    </configuration>
+                </plugin>
+
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>docker</id>
+            <build>
+                <plugins>
+                    <!-- Clean target Directory-->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-clean-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>clean</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <!-- Create Fat Jar -->
+                    <plugin>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>springBootPackage</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>repackage</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <!-- Build Docker Image -->
+                    <plugin>
+                        <groupId>io.fabric8</groupId>
+                        <artifactId>docker-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>build</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <repositories>
+        <repository>
+            <id>bookkeeper-snapshot</id>
+            <url>http://localhost:8081/repository/bookkeeper-snapshot/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>bookkeeper-release</id>
+            <url>http://localhost:8081/repository/bookkeeper-release/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
+
+</project>

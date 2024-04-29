@@ -5,8 +5,8 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.ankurpapneja4.bookkeeper</groupId>
-    <artifactId>bookkeeper-bom</artifactId>
-    <version>1.0.1</version>
+    <artifactId>bookkeeper-parent-bom</artifactId>
+    <version>2.0.0</version>
     <packaging>pom</packaging>
 
     <parent>
@@ -45,7 +45,6 @@
         </dependencies>
     </dependencyManagement>
 
-
     <distributionManagement>
         <snapshotRepository>
             <id>bookkeeper-snapshot</id>
@@ -56,5 +55,14 @@
             <url>http://localhost:8081/repository/bookkeeper-release/</url>
         </repository>
     </distributionManagement>
+
+    <!-- Spring Test, Junit5, Mockito -->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
 </project>

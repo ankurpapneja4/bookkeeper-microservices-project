@@ -1,7 +1,6 @@
 version: '3.8'
 
 services:
-
   # Database
   mysql:
     image: mysql:8.3.0
@@ -48,6 +47,14 @@ services:
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
     depends_on:
       - zookeeper
+
+  # Eureka Server
+
+
+  # API Gateway
+
+  # Config Server
+
 
 volumes:
   bookkeeper-mysql-data:
