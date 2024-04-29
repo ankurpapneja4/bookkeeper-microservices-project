@@ -65,7 +65,15 @@ services:
       - eureka
 
   # Config Server
-
+  config-server:
+    image: ankurpapneja4/bookkeeper/config-server:latest
+    ports:
+      - "8888:8888"
+    environment:
+      EUREKA_URI: http://eureka:8761/eureka
+      CONFIG_REPO_URI: https://github.com/ankurpapneja4/bookkeeper-project-config
+    depends_on:
+      - eureka
 
 volumes:
   bookkeeper-mysql-data:
