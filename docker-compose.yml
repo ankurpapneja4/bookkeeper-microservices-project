@@ -49,9 +49,18 @@ services:
       - zookeeper
 
   # Eureka Server
-
+  eureka:
+    image: ankurpapneja4/bookkeeper/eureka-service:latest
+    ports:
+      - "8761:8761"
 
   # API Gateway
+  gateway:
+    image: ankurpapneja4/bookkeeper/api-gateway:latest
+    ports:
+      - "9090:9090"
+    environment:
+      EUREKA_URI: http://eureka:8761/eureka
 
   # Config Server
 

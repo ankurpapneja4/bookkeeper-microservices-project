@@ -7,7 +7,7 @@ FROM openjdk:23-slim
 LABEL PROJECT_NAME=${project.artifactId} \
       PROJECT=${project.id}
 
-EXPOSE 8761
+EXPOSE 9090
 
 WORKDIR application
 COPY --from=builder application/dependencies/ ./
