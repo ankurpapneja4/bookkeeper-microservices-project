@@ -3,7 +3,7 @@ package com.github.ankurpapneja4.bookkeeper.inventoryservice.services;
 import com.github.ankurpapneja4.bookkeeper.inventoryservice.domain.Inventory;
 import com.github.ankurpapneja4.bookkeeper.inventoryservice.repository.InventoryRepository;
 import com.github.ankurpapneja4.bookkeeper.inventoryservice.repository.ProductRepository;
-import com.github.ankurpapneja4.bookkeeper.mapper.InventoryMapper;
+import com.github.ankurpapneja4.bookkeeper.inventoryservice.web.mapper.InventoryMapper;
 import com.github.ankurpapneja4.bookkeeper.model.InventoryDto;
 import com.github.ankurpapneja4.bookkeeper.model.InventoryDtoPagedList;
 import lombok.AllArgsConstructor;

@@ -1,6 +1,7 @@
-package com.github.ankurpapneja4.bookkeeper.mapper;
+package com.github.ankurpapneja4.bookkeeper.inventoryservice.web.mapper;
 
 import com.github.ankurpapneja4.bookkeeper.inventoryservice.domain.Product;
+import com.github.ankurpapneja4.bookkeeper.mapper.DateMapper;
 import com.github.ankurpapneja4.bookkeeper.model.ProductDto;
 import org.mapstruct.Mapper;
 

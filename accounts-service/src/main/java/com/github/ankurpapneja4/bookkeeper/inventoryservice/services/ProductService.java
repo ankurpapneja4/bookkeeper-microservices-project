@@ -4,7 +4,7 @@ import com.github.ankurpapneja4.bookkeeper.exceptions.NotFoundException;
 import com.github.ankurpapneja4.bookkeeper.inventoryservice.domain.Product;
 import com.github.ankurpapneja4.bookkeeper.inventoryservice.repository.ProductRepository;
 import com.github.ankurpapneja4.bookkeeper.inventoryservice.services.accountservice.ClientAccountService;
-import com.github.ankurpapneja4.bookkeeper.mapper.ProductMapper;
+import com.github.ankurpapneja4.bookkeeper.inventoryservice.web.mapper.ProductMapper;
 import com.github.ankurpapneja4.bookkeeper.model.AccountDto;
 import com.github.ankurpapneja4.bookkeeper.model.ProductDto;
 import com.github.ankurpapneja4.bookkeeper.model.enums.Schedule;

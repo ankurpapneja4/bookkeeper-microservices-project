@@ -2,8 +2,8 @@ package com.github.ankurpapneja4.bookkeeper.accountservice.services;
 
 import com.github.ankurpapneja4.bookkeeper.accountservice.domain.Account;
 import com.github.ankurpapneja4.bookkeeper.accountservice.repository.AccountRepository;
+import com.github.ankurpapneja4.bookkeeper.accountservice.web.mapper.AccountMapper;
 import com.github.ankurpapneja4.bookkeeper.exceptions.NotFoundException;
-import com.github.ankurpapneja4.bookkeeper.mapper.AccountMapper;
 import com.github.ankurpapneja4.bookkeeper.model.AccountDto;
 import com.github.ankurpapneja4.bookkeeper.model.AccountDtoPagedList;
 import lombok.AllArgsConstructor;

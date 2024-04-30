@@ -3,7 +3,7 @@ package com.github.ankurpapneja4.bookkeeper.accountservice.services;
 import com.github.ankurpapneja4.bookkeeper.accountservice.domain.JournalEntry;
 import com.github.ankurpapneja4.bookkeeper.accountservice.repository.AccountRepository;
 import com.github.ankurpapneja4.bookkeeper.accountservice.repository.JournalEntryRepository;
-import com.github.ankurpapneja4.bookkeeper.mapper.JournalEntryMapper;
+import com.github.ankurpapneja4.bookkeeper.accountservice.web.mapper.JournalEntryMapper;
 import com.github.ankurpapneja4.bookkeeper.model.JournalEntryDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

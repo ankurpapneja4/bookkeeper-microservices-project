@@ -1,10 +1,10 @@
 package com.github.ankurpapneja4.bookkeeper.purchaseservice.services;
 
-import com.github.ankurpapneja4.bookkeeper.mapper.PurchaseInvoiceMapper;
 import com.github.ankurpapneja4.bookkeeper.model.PurchaseInvoiceDto;
 import com.github.ankurpapneja4.bookkeeper.model.events.NewInvoiceAddedEvent;
 import com.github.ankurpapneja4.bookkeeper.purchaseservice.domain.PurchaseInvoice;
 import com.github.ankurpapneja4.bookkeeper.purchaseservice.repository.PurchaseInvoiceRepository;
+import com.github.ankurpapneja4.bookkeeper.purchaseservice.web.mapper.PurchaseInvoiceMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
