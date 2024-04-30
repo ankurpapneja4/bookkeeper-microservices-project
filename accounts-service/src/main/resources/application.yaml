@@ -31,4 +31,4 @@ accountService:
 
 productService:
   client:
-    serviceUri: ${PRODUCT_SERVICE_URI:http://localhost:8080/}
+    serviceUri: ${PRODUCT_SERVICE_URI:http://localhost:8082/}
