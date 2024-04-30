@@ -1,6 +1,5 @@
 package com.github.ankurpapneja4.bookkeeper.inventoryservice.services;
 
-import com.github.ankurpapneja4.bookkeeper.accountservice.domain.Schedule;
 import com.github.ankurpapneja4.bookkeeper.exceptions.NotFoundException;
 import com.github.ankurpapneja4.bookkeeper.inventoryservice.domain.Product;
 import com.github.ankurpapneja4.bookkeeper.inventoryservice.repository.ProductRepository;
@@ -8,6 +7,7 @@ import com.github.ankurpapneja4.bookkeeper.inventoryservice.services.accountserv
 import com.github.ankurpapneja4.bookkeeper.mapper.ProductMapper;
 import com.github.ankurpapneja4.bookkeeper.model.AccountDto;
 import com.github.ankurpapneja4.bookkeeper.model.ProductDto;
+import com.github.ankurpapneja4.bookkeeper.model.enums.Schedule;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

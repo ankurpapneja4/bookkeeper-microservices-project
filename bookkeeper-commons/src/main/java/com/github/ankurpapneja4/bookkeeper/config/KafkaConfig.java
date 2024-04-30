@@ -1,4 +1,4 @@
-package com.github.ankurpapneja4.bookkeeper.accountservice.config;
+package com.github.ankurpapneja4.bookkeeper.config;
 
 import com.github.ankurpapneja4.bookkeeper.model.enums.KafkaTopic;
 import org.apache.kafka.clients.admin.NewTopic;

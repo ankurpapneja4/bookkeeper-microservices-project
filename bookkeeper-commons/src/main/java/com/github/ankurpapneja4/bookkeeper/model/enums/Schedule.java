@@ -1,4 +1,4 @@
-package com.github.ankurpapneja4.bookkeeper.accountservice.domain;
+package com.github.ankurpapneja4.bookkeeper.model.enums;
 
 public enum Schedule {
 

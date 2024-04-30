@@ -1,12 +1,12 @@
 package com.github.ankurpapneja4.bookkeeper.accountservice.services.listeners;
 
-import com.github.ankurpapneja4.bookkeeper.accountservice.domain.JournalEntryType;
 import com.github.ankurpapneja4.bookkeeper.accountservice.services.JournalEntryService;
 import com.github.ankurpapneja4.bookkeeper.accountservice.services.inventoryservice.ClientProductService;
 import com.github.ankurpapneja4.bookkeeper.model.AccountDto;
 import com.github.ankurpapneja4.bookkeeper.model.JournalEntryDto;
 import com.github.ankurpapneja4.bookkeeper.model.ProductDto;
 import com.github.ankurpapneja4.bookkeeper.model.PurchaseInvoiceDto;
+import com.github.ankurpapneja4.bookkeeper.model.enums.JournalEntryType;
 import com.github.ankurpapneja4.bookkeeper.model.events.NewInvoiceAddedEvent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.annotation.KafkaListener;

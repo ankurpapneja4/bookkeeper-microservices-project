@@ -1,7 +1,7 @@
 package com.github.ankurpapneja4.bookkeeper.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.github.ankurpapneja4.bookkeeper.accountservice.domain.JournalEntryType;
+import com.github.ankurpapneja4.bookkeeper.model.enums.JournalEntryType;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Null;
 import lombok.*;

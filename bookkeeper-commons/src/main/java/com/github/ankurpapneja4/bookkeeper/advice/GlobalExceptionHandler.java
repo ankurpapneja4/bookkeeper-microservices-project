@@ -1,4 +1,4 @@
-package com.github.ankurpapneja4.bookkeeper.accountservice.web.controller;
+package com.github.ankurpapneja4.bookkeeper.advice;
 
 import com.github.ankurpapneja4.bookkeeper.exceptions.NotFoundException;
 import jakarta.validation.ConstraintViolationException;

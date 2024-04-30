@@ -1,6 +1,5 @@
 package com.github.ankurpapneja4.bookkeeper.model;
 
-import lombok.NoArgsConstructor;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 

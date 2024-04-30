@@ -1,7 +1,7 @@
 package com.github.ankurpapneja4.bookkeeper.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.github.ankurpapneja4.bookkeeper.accountservice.domain.Schedule;
+import com.github.ankurpapneja4.bookkeeper.model.enums.Schedule;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Null;
