@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class RouteConfig {
+public class RouteConfiguration {
 
     @Bean
     public RouteLocator routeFunction(RouteLocatorBuilder routeBuilder){
@@ -28,7 +28,7 @@ public class RouteConfig {
                     )
                     .route( "tax-service",
                             r -> r.path("/bookkeeper/tax-service/**")
-                                    .filters(f -> f.rewritePath("/bookkeeper/tax-service/**","/${segment}"))
+                                    .filters(f -> f.rewritePath("/bookkeeper/tax-service/(?<segment>.*)","/${segment}"))
                                         .uri("lb://tax-service")
                     )
                 .build();
