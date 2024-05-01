@@ -41,6 +41,8 @@ public class InventoryService {
         // Update Inventory
         inventory.setTotalPurchaseQty( inventory.getTotalPurchaseQty().add( qty    ));
         inventory.setTotalPurchaseAmt( inventory.getTotalPurchaseAmt().add( amount ));
+        inventory.setAveragePrice(
+                inventory.getTotalPurchaseAmt().divide( inventory.getTotalPurchaseAmt()));
 
         // Save
         inventoryRepository.save(
