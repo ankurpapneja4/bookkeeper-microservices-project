@@ -67,8 +67,6 @@ services:
   # Config Server
   config-server:
     image: ankurpapneja4/bookkeeper/config-server:latest
-    ports:
-      - "8888:8888"
     environment:
       EUREKA_URI: http://eureka:8761/eureka
       CONFIG_REPO_URI: https://github.com/ankurpapneja4/bookkeeper-project-config
@@ -100,8 +98,9 @@ services:
   # Inventory Microservice
   inventory-service:
     image: ankurpapneja4/bookkeeper/inventory-service:latest
-    ports:
-      - "8082:8080"
+    deploy:
+      mode: replicated
+      replicas: 3
     environment:
       SPRING_PROFILES_ACTIVE: eureka,config,mysql,kafka
       MYSQL_URL: jdbc:mysql://mysql:3306/bookkeeper
@@ -121,8 +120,6 @@ services:
   # Purchase Microservice
   purchase-service:
     image: ankurpapneja4/bookkeeper/purchase-service:latest
-    ports:
-      - "8083:8080"
     environment:
       SPRING_PROFILES_ACTIVE: eureka,config,mysql,kafka
       MYSQL_URL: jdbc:mysql://mysql:3306/bookkeeper
@@ -142,8 +139,6 @@ services:
   # Tax Microservice
   tax-service:
     image: ankurpapneja4/bookkeeper/tax-service:latest
-    ports:
-      - "8084:8080"
     environment:
       SPRING_PROFILES_ACTIVE: eureka,config,mysql,kafka
       MYSQL_URL: jdbc:mysql://mysql:3306/bookkeeper
