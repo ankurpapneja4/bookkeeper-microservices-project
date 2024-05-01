@@ -50,13 +50,13 @@ services:
 
   # Eureka Server
   eureka:
-    image: ankurpapneja4/bookkeeper/eureka-service:latest
+    image: ankurpapneja4/eureka-service:latest
     ports:
       - "8761:8761"
 
   # API Gateway
   gateway:
-    image: ankurpapneja4/bookkeeper/api-gateway:latest
+    image: ankurpapneja4/api-gateway:latest
     ports:
       - "9090:9090"
     environment:
@@ -66,7 +66,7 @@ services:
 
   # Config Server
   config-server:
-    image: ankurpapneja4/bookkeeper/config-server:latest
+    image: ankurpapneja4/config-server:latest
     environment:
       EUREKA_URI: http://eureka:8761/eureka
       CONFIG_REPO_URI: https://github.com/ankurpapneja4/bookkeeper-project-config
@@ -75,7 +75,7 @@ services:
 
   # Account Microservice
   account-service:
-    image: ankurpapneja4/bookkeeper/accounts-service:latest
+    image: ankurpapneja4/accounts-service:latest
     deploy:
       mode: replicated
       replicas: 2
@@ -97,7 +97,7 @@ services:
 
   # Inventory Microservice
   inventory-service:
-    image: ankurpapneja4/bookkeeper/inventory-service:latest
+    image: ankurpapneja4/inventory-service:latest
     deploy:
       mode: replicated
       replicas: 3
@@ -119,7 +119,7 @@ services:
 
   # Purchase Microservice
   purchase-service:
-    image: ankurpapneja4/bookkeeper/purchase-service:latest
+    image: ankurpapneja4/purchase-service:latest
     environment:
       SPRING_PROFILES_ACTIVE: eureka,config,mysql,kafka
       MYSQL_URL: jdbc:mysql://mysql:3306/bookkeeper
@@ -138,7 +138,7 @@ services:
 
   # Tax Microservice
   tax-service:
-    image: ankurpapneja4/bookkeeper/tax-service:latest
+    image: ankurpapneja4/tax-service:latest
     environment:
       SPRING_PROFILES_ACTIVE: eureka,config,mysql,kafka
       MYSQL_URL: jdbc:mysql://mysql:3306/bookkeeper

@@ -15,7 +15,7 @@
 
     <properties>
         <fabric8-docker-plugin.version>0.44.0</fabric8-docker-plugin.version>
-        <docker.image-prefix>ankurpapneja4/bookkeeper</docker.image-prefix>
+        <docker.image-prefix>ankurpapneja4</docker.image-prefix>
         <docker.image-name>${project.artifactId}</docker.image-name>
         <tag>${project.version}</tag>
     </properties>
@@ -103,9 +103,10 @@
                         <artifactId>docker-maven-plugin</artifactId>
                         <executions>
                             <execution>
-                                <phase>package</phase>
+                                <phase>install</phase>
                                 <goals>
                                     <goal>build</goal>
+                                    <goal>push</goal>
                                 </goals>
                             </execution>
                         </executions>
