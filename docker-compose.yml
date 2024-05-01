@@ -78,8 +78,9 @@ services:
   # Account Microservice
   account-service:
     image: ankurpapneja4/bookkeeper/accounts-service:latest
-    ports:
-      - "8080:8080"
+    deploy:
+      mode: replicated
+      replicas: 2
     environment:
       SPRING_PROFILES_ACTIVE: eureka,config,mysql,kafka
       MYSQL_URL: jdbc:mysql://mysql:3306/bookkeeper
