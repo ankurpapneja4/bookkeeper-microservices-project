@@ -94,6 +94,7 @@ services:
       - config-server
       - kafka1
       - mysql
+    restart: on-failure
 
   # Inventory Microservice
   inventory-service:
@@ -114,8 +115,9 @@ services:
       - config-server
       - kafka1
       - mysql
+    restart: on-failure
 
-  # Tax Microservice
+  # Purchase Microservice
   purchase-service:
     image: ankurpapneja4/bookkeeper/purchase-service:latest
     ports:
@@ -134,8 +136,9 @@ services:
       - config-server
       - kafka1
       - mysql
+    restart: on-failure
 
-  # Purchase Microservice
+  # Tax Microservice
   tax-service:
     image: ankurpapneja4/bookkeeper/tax-service:latest
     ports:
@@ -154,6 +157,7 @@ services:
       - config-server
       - kafka1
       - mysql
+    restart: on-failure
 
 volumes:
   bookkeeper-mysql-data:
