@@ -23,7 +23,7 @@ public class RouteConfiguration {
                     )
                     .route( "purchase-service", r ->
                             r.path("/bookkeeper/purchase-service/**")
-                                    .filters( f -> f.rewritePath("/bookkeeper/purchase-service/(?<segment>.*)","/{segment}"))
+                                    .filters( f -> f.rewritePath("/bookkeeper/purchase-service/(?<segment>.*)","/${segment}"))
                                         .uri("lb://purchase-service")
                     )
                     .route( "tax-service",
